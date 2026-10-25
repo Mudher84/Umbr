@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/umbra_bg">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- one row: back / forward / reload, the tabs (the open tab is the address bar), the panther menu -->
+        <LinearLayout
+            android:id="@+id/top_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bar_bg"
+            android:gravity="center_vertical"
+            android:minHeight="@dimen/bar_height"
+            android:orientation="horizontal"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="7dp">
+
+            <LinearLayout
+                android:id="@+id/nav_capsule"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/bubble"
+                android:background="@drawable/capsule_bg"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="2dp">
+
+                <ImageButton
+                    android:id="@+id/btn_back"
+                    style="@style/Umbra.IconButton"
+                    android:contentDescription="@string/back"
+                    android:src="@drawable/ic_back" />
+
+                <ImageButton
+                    android:id="@+id/btn_forward"
+                    style="@style/Umbra.IconButton"
+                    android:contentDescription="@string/forward"
+                    android:src="@drawable/ic_forward" />
+
+                <ImageButton
+                    android:id="@+id/btn_reload"
+                    style="@style/Umbra.IconButton"
+                    android:contentDescription="@string/reload"
+                    android:src="@drawable/ic_reload" />
+            </LinearLayout>
+
+            <HorizontalScrollView
+                android:id="@+id/tab_scroll"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:layout_weight="1"
+                android:fillViewport="true"
+                android:overScrollMode="never"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:id="@+id/tab_strip"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal" />
+            </HorizontalScrollView>
+
+            <ImageButton
+                android:id="@+id/btn_menu"
+                android:layout_width="@dimen/bubble"
+                android:layout_height="@dimen/bubble"
+                android:background="@drawable/bubble_bg"
+                android:contentDescription="@string/menu"
+                android:padding="3dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/umbra_logo" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <org.mozilla.geckoview.GeckoView
+                android:id="@+id/gecko"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <LinearLayout
+                android:id="@+id/find_bar"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/bubble"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_marginBottom="14dp"
+                android:background="@drawable/find_bar_bg"
+                android:elevation="6dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="6dp"
+                android:visibility="gone">
+
+                <EditText
+                    android:id="@+id/find_text"
+                    android:layout_width="220dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:hint="@string/find_in_page"
+                    android:imeOptions="actionSearch"
+                    android:inputType="text"
+                    android:paddingHorizontal="12dp"
+                    android:textColor="@color/umbra_text"
+                    android:textColorHint="@color/umbra_text_dim"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/find_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="6dp"
+                    android:textColor="@color/umbra_text_dim"
+                    android:textSize="13sp" />
+
+                <ImageButton android:id="@+id/find_prev" style="@style/Umbra.IconButton" android:src="@drawable/ic_up" android:contentDescription="@null" />
+                <ImageButton android:id="@+id/find_next" style="@style/Umbra.IconButton" android:src="@drawable/ic_down" android:contentDescription="@null" />
+                <ImageButton android:id="@+id/find_close" style="@style/Umbra.IconButton" android:src="@drawable/ic_close" android:contentDescription="@string/cancel" />
+            </LinearLayout>
+
+            <!-- little notice at the bottom (downloads) -->
+            <LinearLayout
+                android:id="@+id/notice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_marginBottom="14dp"
+                android:background="@drawable/find_bar_bg"
+                android:elevation="6dp"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/bubble"
+                android:orientation="horizontal"
+                android:paddingHorizontal="16dp"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/notice_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxWidth="320dp"
+                    android:textColor="@color/umbra_text"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/notice_action"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="14dp"
+                    android:padding="6dp"
+                    android:textColor="@color/umbra_violet"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </FrameLayout>
+    </LinearLayout>
+</FrameLayout>

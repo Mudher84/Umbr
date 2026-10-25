@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Black Panther & Silver Vortex, light (values-night holds dark) -->
+<resources>
+    <color name="umbra_bg">#F4F5F9</color>
+    <color name="umbra_glow_1">#1AA855F7</color>
+    <color name="umbra_glow_2">#1438BDF8</color>
+    <color name="umbra_text">#1E1B2E</color>
+    <color name="umbra_text_dim">#8A1E1B2E</color>
+    <color name="umbra_bubble">#FFFFFF</color>
+    <color name="umbra_bubble_pressed">#F1ECFB</color>
+    <color name="umbra_border">#241E1B2E</color>
+    <color name="umbra_border_strong">#3D1E1B2E</color>
+    <color name="umbra_pill_start">#FFFFFF</color>
+    <color name="umbra_pill_end">#F5F0FF</color>
+    <color name="umbra_panel">#F7FFFFFF</color>
+    <color name="umbra_focus">#7C3AED</color>
+    <color name="umbra_violet">#A855F7</color>
+    <color name="umbra_private">#7C3AED</color>
+</resources>

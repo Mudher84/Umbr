@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="bar_height">56dp</dimen>
+    <dimen name="bubble">38dp</dimen>
+    <dimen name="pill_min">220dp</dimen>
+    <dimen name="pill_max">560dp</dimen>
+</resources>

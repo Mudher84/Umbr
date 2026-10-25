@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- the open tab: a wide pill that is also the address bar, with the liquid loading fill inside -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/pill"
+    android:layout_width="wrap_content"
+    android:layout_height="@dimen/bubble"
+    android:background="@drawable/pill_bg">
+
+    <app.umbra.browser.LiquidView
+        android:id="@+id/liquid"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingStart="7dp"
+        android:paddingEnd="2dp">
+
+        <ImageView
+            android:id="@+id/pill_icon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:importantForAccessibility="no" />
+
+        <EditText
+            android:id="@+id/url"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@null"
+            android:hint="@string/url_hint"
+            android:imeOptions="actionGo|flagNoExtractUi"
+            android:importantForAutofill="no"
+            android:inputType="textUri"
+            android:maxLines="1"
+            android:paddingHorizontal="9dp"
+            android:selectAllOnFocus="true"
+            android:textColor="@color/umbra_text"
+            android:textColorHint="@color/umbra_text_dim"
+            android:textDirection="locale"
+            android:textSize="15sp" />
+
+        <ImageButton
+            android:id="@+id/pill_close"
+            style="@style/Umbra.IconButton"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:contentDescription="@string/close_tab"
+            android:padding="8dp"
+            android:src="@drawable/ic_close" />
+    </LinearLayout>
+</FrameLayout>

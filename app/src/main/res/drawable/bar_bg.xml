@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item><shape><solid android:color="@color/umbra_bg" /></shape></item>
+    <item>
+        <shape>
+            <gradient android:type="radial" android:gradientRadius="420dp" android:centerX="0.08" android:centerY="0"
+                android:startColor="@color/umbra_glow_1" android:endColor="@android:color/transparent" />
+        </shape>
+    </item>
+    <item>
+        <shape>
+            <gradient android:type="radial" android:gradientRadius="360dp" android:centerX="0.92" android:centerY="0"
+                android:startColor="@color/umbra_glow_2" android:endColor="@android:color/transparent" />
+        </shape>
+    </item>
+</layer-list>

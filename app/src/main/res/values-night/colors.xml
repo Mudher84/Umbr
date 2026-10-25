@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="umbra_bg">#07070A</color>
+    <color name="umbra_glow_1">#29A855F7</color>
+    <color name="umbra_glow_2">#12E2E8F0</color>
+    <color name="umbra_text">#E2E8F0</color>
+    <color name="umbra_text_dim">#8AE2E8F0</color>
+    <color name="umbra_bubble">#0FE2E8F0</color>
+    <color name="umbra_bubble_pressed">#1FE2E8F0</color>
+    <color name="umbra_border">#33E2E8F0</color>
+    <color name="umbra_border_strong">#57E2E8F0</color>
+    <color name="umbra_pill_start">#1CE2E8F0</color>
+    <color name="umbra_pill_end">#21A855F7</color>
+    <color name="umbra_panel">#F214141C</color>
+    <color name="umbra_focus">#E2E8F0</color>
+    <color name="umbra_violet">#A855F7</color>
+    <color name="umbra_private">#A855F7</color>
+</resources>

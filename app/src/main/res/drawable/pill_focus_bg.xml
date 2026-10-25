@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <corners android:radius="999dp" />
+    <gradient android:angle="315" android:startColor="@color/umbra_pill_start" android:endColor="@color/umbra_pill_end" />
+    <stroke android:width="1.5dp" android:color="@color/umbra_focus" />
+</shape>
