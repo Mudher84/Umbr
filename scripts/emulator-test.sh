@@ -3,7 +3,11 @@
 set -x
 mkdir -p shots
 t() { timeout 60 "$@"; }
-shot() { t adb exec-out screencap -p > "shots/$1.png"; ls -la "shots/$1.png"; }
+shot() {
+  t adb shell screencap -p /sdcard/shot.png >> shots/adb.txt 2>&1
+  t adb pull /sdcard/shot.png "shots/$1.png" >> shots/adb.txt 2>&1
+  ls -la "shots/$1.png" >> shots/adb.txt 2>&1
+}
 t adb wait-for-device
 timeout 300 adb install --no-incremental -r umbra-test.apk > shots/install.txt 2>&1
 cat shots/install.txt
