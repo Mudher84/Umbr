@@ -3,8 +3,14 @@
 set -euxo pipefail
 sdk="$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager"
 yes | "$sdk" --licenses > /dev/null || true
-"$sdk" "platforms;android-36" "build-tools;36.0.0" > /dev/null
+"$sdk" "platforms;android-37" > /dev/null
 ./scripts/fetch-ublock.sh
+# newest stable Android Gradle plugin, unless one is pinned in build.gradle.kts
+if grep -q AGP_VERSION build.gradle.kts; then
+  agp=$(curl -sL https://dl.google.com/dl/android/maven2/com/android/tools/build/gradle/maven-metadata.xml | grep -oE '<version>[0-9]+\.[0-9]+\.[0-9]+</version>' | sed 's/<[^>]*>//g' | sort -V | tail -1)
+  echo "AGP $agp"
+  sed -i "s/AGP_VERSION/$agp/" build.gradle.kts
+fi
 ./gradlew --no-daemon --stacktrace assembleRelease
 mkdir -p out
 cp app/build/outputs/apk/release/*.apk out/

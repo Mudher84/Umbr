@@ -2,7 +2,6 @@ import java.util.Properties
 
 plugins {
     id("com.android.application")
-    id("org.jetbrains.kotlin.android")
 }
 
 // Release signing comes from keystore.properties (kept out of git) or from CI env vars.
@@ -14,7 +13,7 @@ fun signingValue(key: String, env: String): String? = signing.getProperty(key) ?
 
 android {
     namespace = "app.umbra.browser"
-    compileSdk = 36
+    compileSdk = 37
 
     defaultConfig {
         applicationId = "app.umbra.browser"
@@ -56,9 +55,6 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
-    }
-    kotlinOptions {
-        jvmTarget = "17"
     }
     buildFeatures {
         buildConfig = true
