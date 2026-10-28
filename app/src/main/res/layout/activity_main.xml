@@ -33,19 +33,19 @@
 
                 <ImageButton
                     android:id="@+id/btn_back"
-                    style="@style/Umbra.IconButton"
+                    style="@style/UmbraIconButton"
                     android:contentDescription="@string/back"
                     android:src="@drawable/ic_back" />
 
                 <ImageButton
                     android:id="@+id/btn_forward"
-                    style="@style/Umbra.IconButton"
+                    style="@style/UmbraIconButton"
                     android:contentDescription="@string/forward"
                     android:src="@drawable/ic_forward" />
 
                 <ImageButton
                     android:id="@+id/btn_reload"
-                    style="@style/Umbra.IconButton"
+                    style="@style/UmbraIconButton"
                     android:contentDescription="@string/reload"
                     android:src="@drawable/ic_reload" />
             </LinearLayout>
@@ -124,9 +124,9 @@
                     android:textColor="@color/umbra_text_dim"
                     android:textSize="13sp" />
 
-                <ImageButton android:id="@+id/find_prev" style="@style/Umbra.IconButton" android:src="@drawable/ic_up" android:contentDescription="@null" />
-                <ImageButton android:id="@+id/find_next" style="@style/Umbra.IconButton" android:src="@drawable/ic_down" android:contentDescription="@null" />
-                <ImageButton android:id="@+id/find_close" style="@style/Umbra.IconButton" android:src="@drawable/ic_close" android:contentDescription="@string/cancel" />
+                <ImageButton android:id="@+id/find_prev" style="@style/UmbraIconButton" android:src="@drawable/ic_up" android:contentDescription="@null" />
+                <ImageButton android:id="@+id/find_next" style="@style/UmbraIconButton" android:src="@drawable/ic_down" android:contentDescription="@null" />
+                <ImageButton android:id="@+id/find_close" style="@style/UmbraIconButton" android:src="@drawable/ic_close" android:contentDescription="@string/cancel" />
             </LinearLayout>
 
             <!-- little notice at the bottom (downloads) -->

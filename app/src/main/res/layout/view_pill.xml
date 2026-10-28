@@ -45,7 +45,7 @@
 
         <ImageButton
             android:id="@+id/pill_close"
-            style="@style/Umbra.IconButton"
+            style="@style/UmbraIconButton"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:contentDescription="@string/close_tab"
