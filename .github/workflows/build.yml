@@ -85,7 +85,7 @@ jobs:
           target: google_apis
           profile: pixel_tablet
           disable-animations: true
-          emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim
+          emulator-options: -no-window -gpu guest -no-snapshot -noaudio -no-boot-anim
           script: ./scripts/emulator-test.sh
       - name: Save results
         if: always()

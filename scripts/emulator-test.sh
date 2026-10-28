@@ -4,8 +4,9 @@ set -x
 mkdir -p shots
 t() { timeout 60 "$@"; }
 shot() {
-  t adb shell screencap -p /sdcard/shot.png >> shots/adb.txt 2>&1
-  t adb pull /sdcard/shot.png "shots/$1.png" >> shots/adb.txt 2>&1
+  # screencap returns empty images on the headless GPU, so ask the emulator itself
+  t adb emu screenrecord screenshot "$PWD/shots/$1.png" >> shots/adb.txt 2>&1
+  [ -s "shots/$1.png" ] || { t adb exec-out screencap -p > "shots/$1.png"; }
   ls -la "shots/$1.png" >> shots/adb.txt 2>&1
 }
 t adb wait-for-device
