@@ -3,9 +3,7 @@
 set -euxo pipefail
 sdk="$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager"
 yes | "$sdk" --licenses > /dev/null || true
-"$sdk" --list 2>/dev/null | grep -oE 'platforms;android-[0-9][^ ]*' | sort -uV | tail -5
-plat=$("$sdk" --list 2>/dev/null | grep -oE 'platforms;android-37[^ ]*' | sort -uV | head -1)
-"$sdk" "$plat" > /dev/null
+"$sdk" "platforms;android-37.2" > /dev/null
 ./scripts/fetch-ublock.sh
 # newest stable Android Gradle plugin, unless one is pinned in build.gradle.kts
 if grep -q AGP_VERSION build.gradle.kts; then

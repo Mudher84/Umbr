@@ -14,6 +14,7 @@ fun signingValue(key: String, env: String): String? = signing.getProperty(key) ?
 android {
     namespace = "app.umbra.browser"
     compileSdk = 37
+    compileSdkMinor = 2
 
     defaultConfig {
         applicationId = "app.umbra.browser"
