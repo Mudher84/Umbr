@@ -1,0 +1,15 @@
++ timeout 60 adb emu screenrecord screenshot /home/runner/work/Umbr/Umbr/shots/1-newtab.png
+OK
+-rw-r--r-- 1 runner runner 205122 Oct 28 04:42 shots/1-newtab.png
++ timeout 60 adb emu screenrecord screenshot /home/runner/work/Umbr/Umbr/shots/2-loading.png
+OK
+-rw-r--r-- 1 runner runner 205122 Oct 28 04:42 shots/2-loading.png
++ timeout 60 adb emu screenrecord screenshot /home/runner/work/Umbr/Umbr/shots/3-wikipedia.png
+OK
+-rw-r--r-- 1 runner runner 205122 Oct 28 04:42 shots/3-wikipedia.png
++ timeout 60 adb emu screenrecord screenshot /home/runner/work/Umbr/Umbr/shots/4-youtube.png
+OK
+-rw-r--r-- 1 runner runner 205122 Oct 28 04:43 shots/4-youtube.png
++ timeout 60 adb emu screenrecord screenshot /home/runner/work/Umbr/Umbr/shots/5-dark.png
+OK
+-rw-r--r-- 1 runner runner 205122 Oct 28 04:44 shots/5-dark.png
