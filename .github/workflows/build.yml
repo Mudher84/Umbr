@@ -56,3 +56,45 @@ jobs:
         run: |
           gh release delete latest --yes --cleanup-tag || true
           gh release create latest out/* --title "Umbra latest build" --notes "Unsigned build from ${GITHUB_SHA::7}." --prerelease
+
+  # Starts the x86_64 build in an emulator, opens a few pages and saves screenshots to the ci-test branch.
+  emulator-test:
+    needs: build
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/download-artifact@v4
+        with:
+          name: umbra-apks
+          path: out
+      - name: Enable KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules && sudo udevadm trigger --name-match=kvm
+      - name: Sign test APK
+        run: |
+          keytool -genkeypair -keystore test.jks -storepass testtest -keypass testtest -alias t -keyalg RSA -keysize 2048 -validity 30 -dname CN=test
+          bt=$(ls -d $ANDROID_HOME/build-tools/* | sort -V | tail -1)
+          $bt/zipalign -f 4 out/app-x86_64-release-unsigned.apk aligned.apk
+          $bt/apksigner sign --ks test.jks --ks-pass pass:testtest --out umbra-test.apk aligned.apk
+      - uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          arch: x86_64
+          target: google_apis
+          profile: pixel_tablet
+          disable-animations: true
+          emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim
+          script: ./scripts/emulator-test.sh
+      - name: Save results
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p shots && cd shots
+          echo "${{ job.status }} ${GITHUB_SHA}" > status.txt
+          git init -q -b ci-test
+          git add -A
+          git -c user.name=ci -c user.email=ci@localhost commit -qm "test ${GITHUB_SHA::7}"
+          git push -f "https://x-access-token:${GH_TOKEN}@github.com/${{ github.repository }}" ci-test

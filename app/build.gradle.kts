@@ -57,6 +57,10 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
+    packaging {
+        // compressed native libraries: a much smaller APK to download
+        jniLibs.useLegacyPackaging = true
+    }
     buildFeatures {
         buildConfig = true
     }
